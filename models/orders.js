@@ -13,6 +13,6 @@ const OrdersSchema = new Schema({
 });
 
 
-const OrdersModel = mongoose.model("Orders", OrdersSchema);
+const OrdersModel = mongoose.model("orders", OrdersSchema);
 
 module.exports = OrdersModel;

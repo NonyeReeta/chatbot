@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 require("./authentication/auth");
 
 const authRouter = require("./routes/auth");
-
+const menuRouter = require('./routes/menu')
 
 
 // importing cors
@@ -28,7 +28,7 @@ app.use(
     cookie: {
       secure: false,
       //set expiry time for session to 1 hour
-      maxAge: new Date(Date.now() + 3600000),
+      maxAge: 60 * 60 * 1000,
     },
   })
 );
@@ -45,6 +45,8 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', authRouter)
+app.use('/new', menuRouter)
+app.use("/new/menu", menuRouter);
 
 app.listen(PORT, () => {
   console.log(`server listening on port ${PORT}`);

@@ -5,7 +5,7 @@ const MenuSchema = new Schema({
   title: {
     type: String,
     required: true,
-    unique: [true, "Article with this title already exists"],
+    unique: [true, "Menu with this title already exists"],
   },
   description: {
     type: String,
@@ -16,6 +16,6 @@ const MenuSchema = new Schema({
   },
 });
 
-const MenuModel = mongoose.model("menu", MenuSchema);
+const MenuModel = mongoose.model("menus", MenuSchema);
 
 module.exports = MenuModel;
