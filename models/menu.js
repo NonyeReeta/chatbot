@@ -10,6 +10,11 @@ const MenuSchema = new Schema({
   description: {
     type: String,
   },
+  number: {
+    type: Number,
+    required: true,
+    unique: [true, "Menu with this number already exists"],
+  },
   createdAt: {
     type: Date,
     default: Date.now,

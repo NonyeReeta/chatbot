@@ -4,11 +4,20 @@ const Schema = mongoose.Schema;
 
 
 const OrdersSchema = new Schema({
-  userEmail: {
+  orders: {
+    title: {
     type: String,
     required: true,
   },
-  title: [{ type: String }],
+  description: {
+    type: String,
+    required: true,
+  },
+  number: {
+    type: Number,
+    required: true,
+  }
+},
   time: { type: Date, default: Date.now },
 });
 

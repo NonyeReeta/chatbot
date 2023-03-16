@@ -1,0 +1,68 @@
+* {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #252525;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100vw;
+  background: #F5F5DC;
+  text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+#container {
+    padding: 0 5px;
+}
+
+#main-bar {
+    width: 40vw;
+    float: left;
+    position: relative;
+}
+
+#chat-area {
+    width: 40vw;
+    margin-left: 45vw;
+    padding: 5px 10px;
+}
+
+textarea {
+    width: 30vw;
+}
+
+#bot-reply {
+    margin-right: 10vw;
+}
+
+#user-reply {
+    margin-left: 10vw;
+}
+
+.options {
+    border: 2px solid #252525;
+}
+
+.action {
+    
+    margin-top: 10px;
+}
+
+ul {
+    text-align: left;
+}
+
+button :hover {
+    background-color: rgb(81, 135, 236);
+}
+
+#error p{
+    color: #ec3c3c;
+}

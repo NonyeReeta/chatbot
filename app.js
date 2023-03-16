@@ -4,11 +4,19 @@ const { connectToDb } = require("./db");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const path = require("path"); 
 require("./authentication/auth");
 
-const authRouter = require("./routes/auth");
-const menuRouter = require('./routes/menu')
+// importing the data models
+const menuModel = require("./models/menu");
+const botMenuModel = require("./models/botMenu");
+const ordersModel = require("./models/orders");
 
+
+const authRouter = require("./routes/auth");
+const menuRouter = require('./routes/menu');
+const botMenuRouter = require('./routes/botMenu')
+const chatRouter = require('./routes/chat')
 
 // importing cors
 const cors = require('cors')
@@ -18,6 +26,11 @@ const PORT = 3000
 
 // Use cookie-parser middleware to parse cookies
 app.use(cookieParser());
+
+// rendering a veiw
+app.set("view engine", "ejs");
+//setting the public folder as the static folder
+app.use('/public',express.static(path.join(__dirname, "/public")));
 
 // Use express-session middleware to handle sessions
 app.use(
@@ -43,10 +56,41 @@ connectToDb()
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => {
+  const sessionId = req.cookies.sessionId;
+  const session = req.session;
+
+   // get initial options
+    botMenuModel
+      .find({})
+      .then((questions) => {
+         if (
+           session &&
+           session.id === sessionId &&
+           session.deviceId === req.headers["user-agent"]
+         ) {
+          res.render('index', {questions})
+         } else {
+           req.session.deviceId = req.headers["user-agent"];
+           res.cookie("sessionId", req.session.id);
+           res.render("index", { questions });
+         } 
+      })
+      .catch((err) => {
+        res.status(500).send(err.message);
+      });
+})
 
 app.use('/', authRouter)
 app.use('/new', menuRouter)
-app.use("/new/menu", menuRouter);
+app.use("/new/menu", menuRouter)
+app.use('/bot', botMenuRouter)
+app.use("/bot/menu", botMenuRouter);
+app.use("/chat", chatRouter);
+
+
 
 app.listen(PORT, () => {
   console.log(`server listening on port ${PORT}`);

@@ -4,6 +4,7 @@
   "description": "Resturant chatbot",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon -e js,ejs",
     "lint": "eslint .",
     "test": "SET NODE_ENV=test & jest --verbose --runInBand --forceExit ",
     "test:watch": "jest --watch",

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../public/index.js"></script>
+    <link rel="stylesheet" href="../public/css/styles.css" type="text/css"/>
+  </head>
+  <body>
+    <h1>Food Ordering Bot</h1>
+    <div id="container">
+        <div id="main-bar">
+            <div class="options">
+                Please input from the options below at anytime to perform the following action:              
+                <ul>
+                <% questions.forEach(function(question) { %>
+                    <li>Input <%= question.number %> to <%= question.question %></li>
+                <% }); %>
+                </ul>
+        </div>
+        <div class="action">
+            <input id="main-input" type="text" placeholder="type option here" style="width: 80px;">
+            <button type="button" id="sendButton">Send</button>
+        </div>
+        <div id="error"></div>
+    </div>
+    <div id="chat-area" class="options">
+        Place Order here
+        <div id="chat"></div>
+        <div class="action">
+        <input type="text" id="menu-input" placeholder="type option here" style="width: 80px;">
+        <button type="button" id="optionButton">Send</button>
+    </div>
+    </div>
+    
+    </div>
+  </body>
+</html>
