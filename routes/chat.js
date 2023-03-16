@@ -1,5 +1,7 @@
 const express = require('express')
 const chatRouter = express.Router();
+// module to generate random orderId
+const { v4: uuidv4 } = require("uuid");
 const menuModel = require('../models/menu')
 const botMenuModel = require('../models/botMenu')
 const ordersModel = require('../models/orders')
@@ -48,13 +50,14 @@ chatRouter.get('/get-order/:arg', (req, res) => {
 
 // route to receive the customers order and save
 chatRouter.post('/place-order', (req, res) => {
-    const orders = req.body;
-    console.log(orders)
-    ordersModel.create(orders)
+    const orders = req.body.params.orders;
+    let orderId = uuidv4();
+    console.log(orders, orderId)
+    ordersModel.create({orderId, orders})
     .then(() => {
-        return res.json({ message: "Order Placed" });
+        return res.json({ message: "Order Placed" , orderId});
     }).catch(err => {
-        res.status(500).send('An error occured while placing order')
+        res.status(500).send(err.message)
     })
 })
 

@@ -37,12 +37,12 @@ $(document).ready(function () {
             axios
               .post("http://localhost:3000/chat/place-order", {
                 params: {
-                  order: CurrentOrderObj,
+                  orders: CurrentOrderObj,
                 },
               })
               .then((res) =>
                 $("#chat").append(
-                  `<textarea id="bot-reply">${res.data.message}!</textarea>`
+                  `<textarea id="bot-reply">${res.data.message} with orderId(${res.data.orderId})</textarea>`
                 )
               )
               .catch((err) =>
@@ -119,8 +119,7 @@ $(document).ready(function () {
       $("#menu-input").val("");
       // TODO: ADD CURRENT ORDER OBJECT TO CURRENT ORDER OBJECT.
       let orderArr = menuObj.filter((menu) => menu.number === inputValue);
-    //   CurrentOrderObj.push(orderArr);
-      console.log(...orderArr)
+    orderArr.map(item => CurrentOrderObj.push({title:item.title, description:item.description, number:item.number}));
     }
     if (menuObj.length > 0 && inputValue > menuObj.length) {
       $("#chat").append(
