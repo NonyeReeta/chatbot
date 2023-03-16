@@ -43,9 +43,22 @@ app.use(
   })
 );
 // TO HANDLE CORS ERROR
-app.use(cors({
-    origin: "*"
-}))
+const allowedOrigins = [
+  "https://nonye-chatbot.onrender.com",
+  "http://localhost:4200",
+];
+app.use(
+  cors({
+    origin: function(origin, callback) {
+    // Check if the request's origin is in the list of allowed origins
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+  })
+);
 
 
 //  CONNECTING TO DATABASE INSTANCE
