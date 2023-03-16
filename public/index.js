@@ -59,7 +59,7 @@ $(document).ready(function () {
       axios
         .get("http://localhost:3000/chat/orders")
         .then((orders) => {
-          console.log(orders);
+          console.log(orders.data);
           // $("#chat").append(
           //   `<textarea id="bot-reply">Here is your order history</textarea>`
           // );
@@ -73,7 +73,7 @@ $(document).ready(function () {
       $("#main-input").val("");
     }
     if (inputValue === "97") {
-      if(!CurrentOrderObj){
+      if(CurrentOrderObj.length === 0){
         $("#chat").append(
           `<textarea id="bot-reply">You have not current order.</textarea>`
         );
@@ -89,6 +89,7 @@ $(document).ready(function () {
       $("#main-input").val("");
     }
     if (inputValue === "0") {
+      CurrentOrderObj = [];
       $("#chat").append(`<textarea id="bot-reply">Order Cancelled!</textarea>`);
       // then do something
       // clear input area

@@ -12,6 +12,7 @@ body {
   width: 100vw;
   background: #F5F5DC;
   text-align: center;
+  overflow-y: scroll;
 }
 
 h1 {
