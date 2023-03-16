@@ -19,14 +19,14 @@ The project's UI is rendered using *ejs*
 
 ## How to use
 * On initialization, the bot returns the initial options required to perform any action.
-    * example
-        ![application screenshot](https://github.com/NonyeReeta/chatbot/blob/master/images/chatbot-init.png?raw=true)
-* input 1 to get available menu. This area is where  we perform actions.
-    * example
-        ![application screenshot](images\chatbot1.png)
+    * ![application screenshot](https://github.com/NonyeReeta/chatbot/blob/master/images/chatbot-init.png?raw=true)
+* input 1 to get available menu. This area is where we perform actions.
+    * ![application screenshot](https://github.com/NonyeReeta/chatbot/blob/master/images/chatbot1.png?raw=true)
         * This will return a list of items the "Place order area". This is where we place order.
             * Input a number from the list to add an item to cart.
-                ![application screenshot](images\chatbot-user1.png)
+                ![application screenshot](https://github.com/NonyeReeta/chatbot/blob/master/images/chatbot-user1.png?raw=true)
             * input multiple orders like this:
-                ![application screenshot](images\chatbot-usermul.png)
-
+                ![application screenshot](https://github.com/NonyeReeta/chatbot/blob/master/images/chatbot-usermul.png?raw=true)
+* After adding items to the cart, we can checkout, view current order, view order history and cancel an order like this:
+    * ![application screenshot](https://github.com/NonyeReeta/chatbot/blob/master/images/chatbot-99.png?raw=true)
+    * * ![application screenshot](https://github.com/NonyeReeta/chatbot/blob/master/images/chatbot-orderplaced.png?raw=true)
