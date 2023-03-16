@@ -43,9 +43,8 @@ app.use(
   })
 );
 // TO HANDLE CORS ERROR
-const allowedOrigins = ["https://nonye-chatbot.onrender.com", 'http://localhost:4200'];
 app.use(cors({
-    origin: allowedOrigins
+    origin: "*"
 }))
 
 
