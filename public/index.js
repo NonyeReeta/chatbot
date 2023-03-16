@@ -59,10 +59,18 @@ $(document).ready(function () {
       axios
         .get("http://localhost:3000/chat/orders")
         .then((orders) => {
-          console.log(orders.data);
-          // $("#chat").append(
-          //   `<textarea id="bot-reply">Here is your order history</textarea>`
-          // );
+          let orderHistory = orders.data
+          orderHistory.map((order) => {
+            $("#chat").append(
+              `<textarea id="bot-reply">
+              Here is your order history >>>
+              OrderId = ${order.orderId}: ${order.orders.map((item) => {
+                return item.title
+              })}
+              </textarea>`
+            );
+          });
+          
         })
         .catch((err) => {
           $("#chat").append(
