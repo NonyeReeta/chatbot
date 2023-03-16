@@ -20,7 +20,7 @@ The project's UI is rendered using *ejs*
 ## How to use
 * On initialization, the bot returns the initial options required to perform any action.
     * example
-        ![application screenshot](images\chatbot-init.png)
+        ![application screenshot](https://github.com/NonyeReeta/chatbot/blob/master/images/chatbot-init.png?raw=true)
 * input 1 to get available menu. This area is where  we perform actions.
     * example
         ![application screenshot](images\chatbot1.png)
