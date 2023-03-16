@@ -8,10 +8,7 @@ const path = require("path");
 require("./authentication/auth");
 
 // importing the data models
-const menuModel = require("./models/menu");
 const botMenuModel = require("./models/botMenu");
-const ordersModel = require("./models/orders");
-
 
 const authRouter = require("./routes/auth");
 const menuRouter = require('./routes/menu');
@@ -46,8 +43,9 @@ app.use(
   })
 );
 // TO HANDLE CORS ERROR
+const allowedOrigins = ["https://nonye-chatbot.onrender.com", 'http://localhost:4200'];
 app.use(cors({
-    origin: 'http://localhost:4200'
+    origin: allowedOrigins
 }))
 
 
