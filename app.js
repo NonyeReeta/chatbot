@@ -90,7 +90,7 @@ app.use("/chat", chatRouter);
 
 
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`server listening on port ${PORT}`);
 });
 
