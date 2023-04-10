@@ -9,7 +9,7 @@ $(document).ready(function () {
     if (inputValue === "1") {
       // load food menu
       axios
-        .get("http://127.0.0.1:8080/chat/get-menu")
+        .get("https://nonye-chatbot.cyclic.app/chat/get-menu")
         .then((res) => {
           res.data.map((food) => {
             $("#chat").append(
@@ -35,7 +35,7 @@ $(document).ready(function () {
         else {
             // push current order to order db
             axios
-              .post("http://localhost:8080/chat/place-order", {
+              .post("https://nonye-chatbot.cyclic.app/chat/place-order", {
                 params: {
                   orders: CurrentOrderObj,
                 },
@@ -57,7 +57,7 @@ $(document).ready(function () {
     if (inputValue === "98") {
       // get order history
       axios
-        .get("http://localhost:8080/chat/orders")
+        .get("https://nonye-chatbot.cyclic.app/chat/orders")
         .then((orders) => {
           let orderHistory = orders.data
           orderHistory.map((order) => {
