@@ -19,7 +19,7 @@ const chatRouter = require('./routes/chat')
 const cors = require('cors')
 
 const app = express()
-// const PORT = 3000
+const PORT = 80
 
 // Use cookie-parser middleware to parse cookies
 app.use(cookieParser());
@@ -90,8 +90,8 @@ app.use("/chat", chatRouter);
 
 
 
-app.listen(process.env.PORT, () => {
-  console.log(`server listening on port ${process.env.PORT}`);
+app.listen(PORT, () => {
+  console.log(`server listening on port ${PORT}`);
 });
 
 module.exports = app;
