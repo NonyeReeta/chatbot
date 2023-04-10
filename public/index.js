@@ -9,7 +9,7 @@ $(document).ready(function () {
     if (inputValue === "1") {
       // load food menu
       axios
-        .get("http://localhost:3000/chat/get-menu")
+        .get("http://localhost:8080/chat/get-menu")
         .then((res) => {
           res.data.map((food) => {
             $("#chat").append(
@@ -35,7 +35,7 @@ $(document).ready(function () {
         else {
             // push current order to order db
             axios
-              .post("http://localhost:3000/chat/place-order", {
+              .post("http://localhost:8080/chat/place-order", {
                 params: {
                   orders: CurrentOrderObj,
                 },
@@ -57,7 +57,7 @@ $(document).ready(function () {
     if (inputValue === "98") {
       // get order history
       axios
-        .get("http://localhost:3000/chat/orders")
+        .get("http://localhost:8080/chat/orders")
         .then((orders) => {
           let orderHistory = orders.data
           orderHistory.map((order) => {
