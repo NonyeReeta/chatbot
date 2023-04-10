@@ -9,7 +9,7 @@ $(document).ready(function () {
     if (inputValue === "1") {
       // load food menu
       axios
-        .get("https://127.0.0.1:8080/chat/get-menu")
+        .get("http://127.0.0.1:8080/chat/get-menu")
         .then((res) => {
           res.data.map((food) => {
             $("#chat").append(
