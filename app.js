@@ -19,7 +19,7 @@ const chatRouter = require('./routes/chat')
 const cors = require('cors')
 
 const app = express()
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // Use cookie-parser middleware to parse cookies
 app.use(cookieParser());
